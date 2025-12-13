@@ -16,7 +16,7 @@ export default function ContactSection() {
 
       {/* Contact cards */}
       <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <ContactCard label="Email" value="yourname@email.com" />
+        <ContactCard label="Email" value="shivamtillak@gmail.com" />
         <ContactCard label="Location" value="India" />
       </div>
 
@@ -36,6 +36,7 @@ export default function ContactSection() {
             type="email"
             placeholder="Your email"
             className="bg-[#1f1f20] text-sm text-gray-200 rounded-lg px-4 py-3 outline-none border border-white/5 focus:border-yellow-400"
+            required
           />
         </div>
 
@@ -48,6 +49,7 @@ export default function ContactSection() {
         <button
           type="button"
           className="mt-4 bg-yellow-400 text-black text-sm font-medium px-5 py-2 rounded-lg hover:bg-yellow-300 transition"
+          submit
         >
           Send Message
         </button>
