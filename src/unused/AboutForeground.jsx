@@ -41,7 +41,8 @@ export default function AboutForeground() {
 
   return (
     <div className="relative min-h-screen text-gray-100 font-sans lg:scale-[1.20] lg:origin-top">
-      <StarfieldBackground />
+      <StarfieldBackground baseStars={3000} speed={1.2}/>
+
 
       <div className="relative z-10 flex justify-center items-start pt-14 pb-20 px-4 md:px-6">
         <div className="max-w-[980px] w-full grid grid-cols-1 md:grid-cols-[260px_1fr] gap-6 md:gap-8">
@@ -113,6 +114,7 @@ export default function AboutForeground() {
                   <a className="px-3 py-1 rounded-md hover:bg-white/5">Contact</a>
                 </nav>
               </div>
+              
 
               <div className="h-[2px] bg-black/30 rounded-full w-full" />
 
