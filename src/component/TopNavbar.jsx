@@ -11,7 +11,7 @@ const links = [
 
 export default function TopNavbar() {
   return (
-    <nav className="flex gap-6 text-sm border-b border-white/10 pb-3">
+    <nav className="flex gap-6 font-medium text-m border-b border-white/10 pb-3">
       {links.map((link) => (
         <NavLink
           key={link.name}
