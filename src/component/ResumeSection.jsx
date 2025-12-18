@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 export default function ResumeSection() {
   return (
@@ -10,66 +11,136 @@ export default function ResumeSection() {
       </div>
 
       {/* Education */}
-      <div className="mt-8">
-        <h2 className="text-lg font-semibold text-white mb-4">Education</h2>
+      <div className="mt-8 mb-4">
+        <h2 className="text-2xl font-semibold text-white mb-2">Education</h2>
 
-        <ResumeCard
-          title="Bachelor of Computer Science"
-          place="Your College Name"
-          year="2021 — 2025"
-          desc="Focused on web development, data structures, and core computer science subjects."
-        />
-
-        <ResumeCard
-          title="ICSE – Class 10"
-          place="St John's High School"
-          year="2019"
-          desc="Completed secondary education under ICSE board."
-        />
+        <div className="relative border-l border-white/10 pl-6 space-y-8">
+          <TimelineItem
+            title="B.Tech, Computer Science & Engineering (Cyber Security)"
+            place="Aryabhatta Knowledge University"
+            year="2022 — 2026"
+            desc="Focused on full-stack web development, REST APIs, databases, and core computer science fundamentals. Actively involved in internships, projects, and open-source contributions."
+          />
+        </div>
       </div>
+          <hr className="my-2 h-px border-0 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
 
-      {/* Skills */}
-      <div className="mt-10">
-        <h2 className="text-lg font-semibold text-white mb-4">My Skills</h2>
+      <div className="mt-3 mb-4">
+        <h2 className="text-2xl font-semibold text-white mb-2">Experience</h2>
 
-        <SkillBar label="React" value="80%" />
-        <SkillBar label="JavaScript" value="75%" />
-        <SkillBar label="Tailwind CSS" value="70%" />
-        <SkillBar label="Node.js" value="65%" />
+        <div className="relative border-l border-white/10 pl-6 space-y-4">
+          <TimelineItem
+            title="MERN Stack Developer Intern"
+            place="Devstreak"
+            year="Present"
+            desc="Working with the core team to build scalable web applications using React.js, Node.js, Express, and PostgreSQL. Managing tasks with Jira, improving UI components, and contributing to production-ready features."
+          />
+
+
+          <TimelineItem
+            title="Application Developer Intern"
+            place="Startup"
+            year="Jan 2025 — Feb 2025"
+            desc="Worked on web application development, API integration, and testing using Postman. Collaborated with senior developers to implement features, fix bugs, and participate in team discussions."
+          />
+        </div>
+      </div>
+          <hr className="my-2 h-px border-0 bg-gradient-to-r from-transparent via-white/30 to-transparent" />
+
+      {/* Technical Stack */}
+      <div className="mt-4">
+        <h2 className="text-2xl font-semibold text-white mb-6 ">Technical Stack</h2>
+
+        <div className="flex flex-wrap gap-4">
+          <TechStackTag
+            name="React"
+            icon="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/react.svg"
+          />
+          <TechStackTag
+            name="JavaScript"
+            icon="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/javascript.svg"
+          />
+          <TechStackTag
+            name="Node.js"
+            icon="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/nodedotjs.svg"
+          />
+          <TechStackTag
+            name="Express.js"
+            icon="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/express.svg"
+          />
+          <TechStackTag
+            name="PostgreSQL"
+            icon="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/postgresql.svg"
+          />
+          <TechStackTag
+            name="Tailwind CSS"
+            icon="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tailwindcss.svg"
+          />
+          <TechStackTag
+            name="Firebase"
+            icon="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/firebase.svg"
+          />
+          <TechStackTag
+            name="Git"
+            icon="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/git.svg"
+          />
+          <TechStackTag
+            name="GitHub"
+            icon="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/github.svg"
+          />
+          <TechStackTag
+            name="REST API"
+            icon="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/fastapi.svg"
+          />
+        </div>
       </div>
     </section>
   );
 }
 
 /* Resume card */
-function ResumeCard({ title, place, year, desc }) {
-  return (
-    <div className="bg-[#2a2a2b] rounded-xl p-4 mb-4 border border-white/5">
-      <div className="flex justify-between text-sm text-gray-400">
-        <span>{place}</span>
-        <span>{year}</span>
-      </div>
 
-      <h3 className="text-sm font-medium text-white mt-1">{title}</h3>
-      <p className="text-xs text-gray-400 mt-2 leading-relaxed">{desc}</p>
-    </div>
+function TimelineItem({ title, place, year, desc }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -16 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="relative"
+    >
+      {/* Timeline dot */}
+      <span className="absolute -left-[29px] top-2 w-2.5 h-2.5 bg-yellow-400 rounded-full" />
+
+      <div className="space-y-2">
+        <div className="flex flex-wrap justify-between text-sm text-gray-400">
+          <span>{place}</span>
+          <span>{year}</span>
+        </div>
+
+        <h3 className="text-base font-medium text-white leading-snug">
+          {title}
+        </h3>
+
+        <p className="text-sm text-gray-400 leading-relaxed max-w-3xl">
+          {desc}
+        </p>
+      </div>
+    </motion.div>
   );
 }
 
-/* Skill bar */
-function SkillBar({ label, value }) {
+/* Tech stack tag */
+function TechStackTag({ name, icon }) {
   return (
-    <div className="mb-4">
-      <div className="flex justify-between text-xs text-gray-400 mb-1">
-        <span>{label}</span>
-        <span>{value}</span>
-      </div>
-      <div className="w-full h-2 bg-[#2a2a2b] rounded">
-        <div
-          className="h-2 bg-yellow-400 rounded"
-          style={{ width: value }}
-        />
-      </div>
+    <div className="flex items-center gap-3 px-5 py-3 bg-[#2a2a2b] border border-white/10 rounded-xl hover:scale-105 hover:border-yellow-400/40 transition">
+      <img
+        src={icon}
+        alt={name}
+        className="w-6 h-6 invert opacity-90"
+        draggable="false"
+      />
+      <span className="text-sm font-medium text-white">{name}</span>
     </div>
   );
 }
